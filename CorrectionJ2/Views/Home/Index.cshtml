@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "_layout";
+    ViewBag.Title = "Index";
+
+}
+    <div><strong>Bienvenue sur la page d'accueil</strong></div>
+    <div>Accéder à mon historique de visionnage 2021</div>
+    <div><a href="http://localhost:5013/Home/ListeFilms">GO !</a></div>
+
+
+@section Menu {
+    <ul>
+        <li class="selectionne">@Html.ActionLink("Accueil", "Index", "Home")</li>
+        <li>@Html.ActionLink("Liste des films", "ListeFilms", "Home")</li>
+        <li>@Html.ActionLink("Ajouter un film", "AjoutFilm", "Film")</li>
+        <li>@Html.ActionLink("Ajouter un visionnage", "AjoutVisionnage", "Film")</li>
+        @Html.RouteLink("lien bourrin","/Home/Index/3")
+    </ul>
+
+}

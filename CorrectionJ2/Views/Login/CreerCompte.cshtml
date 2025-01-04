@@ -1,0 +1,35 @@
+﻿@model CorrectionJ2.Models.Utilisateur
+@{
+    Layout = "_layout";
+    ViewBag.Title = "Créer compte";
+}
+
+<p>
+    Veuillez remplir les champs ci-dessous pour créer votre compte :
+</p>
+
+@using (Html.BeginForm())
+{
+<div>
+    @Html.LabelFor(m => Model.Nom) :
+    @Html.TextBoxFor(m => Model.Nom)
+    @Html.ValidationMessageFor(m => Model.Nom)
+</div>
+
+<div>
+    @Html.LabelFor(m => Model.Mdp) :
+    @Html.PasswordFor(m => Model.Mdp)
+</div>
+
+<input type="submit" value="Je crée mon compte" />
+
+}
+
+@section Menu {
+    <ul>
+        <li class="selectionne">@Html.ActionLink("Accueil", "Index", "Home")</li>
+        <li>@Html.ActionLink("Liste des films", "ListeFilms", "Home")</li>
+        <li>@Html.ActionLink("Ajouter un visionnage", "AjoutVisionnage", "Film")</li>
+    </ul>
+
+}

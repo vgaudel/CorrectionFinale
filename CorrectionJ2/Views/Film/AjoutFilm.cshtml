@@ -1,0 +1,42 @@
+﻿@model CorrectionJ2.Models.Film
+@{
+    Layout = "_layout";
+    ViewBag.Title = "Liste des films";
+
+}
+
+    <div>Formulaire version 1</div>
+
+    @{
+        Html.BeginForm("AjoutFilm", "Film");
+    }
+
+    <div>
+        @Html.LabelFor(m => Model.Titre) :
+        @Html.TextBoxFor(m => Model.Titre)
+        @Html.ValidationMessageFor(m=>Model.Titre)
+    </div>
+    
+    <div>
+        @Html.LabelFor(m => Model.Annee) :
+        @Html.TextBoxFor(m => Model.Annee, new {id="AnneeTextBox"})
+    </div>
+
+    <div>
+        @Html.LabelFor(m => Model.Realisateur) :
+        @Html.TextBoxFor(m => Model.Realisateur)
+    </div>
+    <input type="submit" value="Envoyer" />
+
+    @{
+        Html.EndForm();
+    }
+
+@section Menu {
+    <ul>
+        <li class="selectionne">@Html.ActionLink("Accueil", "Index", "Home")</li>
+        <li>@Html.ActionLink("Liste des films", "ListeFilms", "Home")</li>
+        <li>@Html.ActionLink("Ajouter un visionnage", "AjoutVisionnage", "Film")</li>
+    </ul>
+
+}

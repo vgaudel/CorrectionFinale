@@ -1,0 +1,31 @@
+﻿@model CorrectionJ2.Models.Film
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NonVisionne</title>
+
+</head>
+
+<body>
+    <div>Le film <strong>@Model.Titre</strong> n'a pas été visionné.</div>
+    <div>Voulez-vous trouver une plateforme pour le visionner ?</div>
+    <br />
+    <div>Oui, chercher sur Google</a></div>
+
+    <form name="cse" id="searchbox_demo" method="get" action="http://www.google.com/search">
+        <input type="hidden" name="sitesearch" value="" />
+        <input type="hidden" name="cref" value="" />
+        <input type="hidden" name="ie" value="utf-8" />
+        <input type="hidden" name="hl" value="" />
+        <input name="q" type="text" size="40" />
+        <input type="submit" name="sa" value="Search" />
+    </form>
+    <script type="text/javascript" src="https%3A%2F%2Fcse.google.com%2Fcse/tools/onthefly?form=searchbox_demo&lang="></script>
+
+</body>
+
+</html>

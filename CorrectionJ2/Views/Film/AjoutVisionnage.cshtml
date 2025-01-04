@@ -1,0 +1,42 @@
+﻿@model CorrectionFinale.Models.Visionnage
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ajout Séance</title>
+
+</head>
+
+<body>
+    <div>Formulaire Ajout séance de cinéma</div>
+
+    @{
+        Html.BeginForm("AjoutVisionnage", "Film");
+    }
+
+    <div>
+        @Html.LabelFor(m => Model.Film) :
+        @Html.DropDownListFor(m => Model.Film.Id, new SelectList(ViewBag.listeFilms, "Id", "Titre"))
+    </div>
+
+    <div>
+        @Html.LabelFor(m => Model.Utilisateur) :
+        @Html.DropDownListFor(m => Model.Utilisateur.Id, new SelectList(ViewBag.listeUtilisateurs, "Id", "Nom"))
+    </div>
+
+    <div>
+        @Html.LabelFor(m => Model.DateVisionnage) :
+        @Html.TextBoxFor(m => Model.DateVisionnage, new {type = "date"})
+    </div>
+    <input type="submit" value="Envoyer" />
+
+    @{
+        Html.EndForm();
+    }
+
+</body>
+
+</html>

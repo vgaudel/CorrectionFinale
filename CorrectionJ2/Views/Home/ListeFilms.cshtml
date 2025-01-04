@@ -1,0 +1,36 @@
+﻿@model List<CorrectionJ2.Models.Film>
+@{
+    Layout = "_layout";
+    ViewBag.Title = "Liste des films";
+
+}
+
+    <table border="1">
+        <tr>
+            <th>Titre</th>
+            <th>Année</th>
+            <th>Réalisateur</th>
+            <th>A été visionné</th>
+        </tr>
+        @foreach (CorrectionJ2.Models.Film film in Model)
+        {
+            <tr>
+                <td>@film.Titre</td>
+                <td>@film.Annee</td>
+                <td>@film.Realisateur</td>
+                <td>@film.Visionne</td>
+            </tr>
+        }
+    </table>
+    <br />
+    <div> Pour chercher un film, utiliser : "http://localhost:5013/Home/cherchefilm/VotreFilm"</div>
+    @Html.ActionLink("Ajouter un nouveau film.","AjoutFilm","Film")
+
+@section Menu {
+    <ul>
+        <li class="selectionne">@Html.ActionLink("Accueil", "Index","Home",new {id=1})</li>
+        <li>@Html.ActionLink("Ajouter un film", "AjoutFilm","Film")</li>
+        <li>@Html.ActionLink("Ajouter un visionnage", "AjoutVisionnage","Film")</li>
+    </ul>
+
+}
