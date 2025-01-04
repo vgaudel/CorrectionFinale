@@ -1,4 +1,4 @@
-﻿@model CorrectionJ2.Models.Utilisateur
+﻿@model CorrectionJ2.Models.Utilisateur //On précise le ViewModel (cad l'objet attaché à la vue)
 @{
     Layout = "_layout";
     ViewBag.Title = "Créer compte";
@@ -7,12 +7,27 @@
 <p>
     Veuillez remplir les champs ci-dessous pour créer votre compte :
 </p>
+@{
+//On veut récupérer des donnée de l'utilisateur via un formulaire,
+//On les stocke dans le ViewModel
 
-@using (Html.BeginForm())
-{
+        /*
+    @Html.LabelFor(m => Model.Nom) : ce qu'on veut afficher pour indiquer quoi saisir
+    @Html.TextBoxFor(m => Model.Nom) input de comment on le saisit
+    @Html.ValidationMessageFor(m => Model.Nom) //affichage du message d'erreur s'il y en a un
+
+
+    <input type="submit" value="Je crée mon compte" />
+    Le formulaire se finit toujours par un bouton de type submit
+    c'est lui qui déclenche la requète httpPost
+            */
+}
+
+@using (Html.BeginForm()) //<form> on démarre le formulaire
+{ // pour chacune des valeur on fait une div
 <div>
-    @Html.LabelFor(m => Model.Nom) :
-    @Html.TextBoxFor(m => Model.Nom)
+    @Html.LabelFor(m => Model.Nom) : 
+    @Html.TextBoxFor(m => Model.Nom) 
     @Html.ValidationMessageFor(m => Model.Nom)
 </div>
 
@@ -23,6 +38,7 @@
 
 <input type="submit" value="Je crée mon compte" />
 
+//<\form> On termine le formulaire 
 }
 
 @section Menu {

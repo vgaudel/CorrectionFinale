@@ -8,14 +8,22 @@ namespace CorrectionFinale.Controllers
 {
     public class LoginController : Controller
     {
+        //On définit une méthode par requète Http que l'on veut créer
+
         [HttpGet]
-        public IActionResult CreerCompte()
+        // La route créée est /NomDuControler/NomDeLaMethode
+        // ici ->  /Login/CreerCompte 
+        public IActionResult CreerCompte() // le type de retour IActionResult definit que c'est une route
         {
-            return View();
+            return View();// le type de retour IActionResult veut dire qu'on retourne une vue
+                          // par défaut la vue doit avoir lemême nom que l'action : CreerCompte
+                          // Sinon on précise le nom de la vue return View("nomDeLAutreVue");     
         }
         [HttpPost]
         public IActionResult CreerCompte(Utilisateur utilisateur)
-        {
+        {//Sur la requète Get on envoie le formulaire
+        //sur la requète post, on vérifie que l'utilisateur à bien rempli le formulaire
+        //et on ajoute les données à la base de donnée
             using (IUserService ius = new UserService(new BddContext()))
             {
                 if (ModelState.IsValid && (ius.ChercherUtilisateurParNom(utilisateur.Nom)==null))

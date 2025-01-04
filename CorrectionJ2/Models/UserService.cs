@@ -32,10 +32,10 @@ namespace CorrectionJ2.Models
             _bddContext.SaveChanges();
             return utilisateur.Id; 
         }
-
+        //Exemple de méthode générée à partir de l'interface
         public void ModifierUtilisateur(int Id, string nom, string mdp)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException();//Levée d'exception à remplacer par le vrai code
         }
 
         public void SupprimerUtilisateur(int id)
